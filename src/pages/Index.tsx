@@ -1,7 +1,18 @@
 import Icon from "@/components/ui/icon";
 
-const HERO_IMG =
-  "https://cdn.poehali.dev/projects/a4111b4c-95f5-4f14-9e41-1666ffde4213/files/d55b9ec8-829b-40cf-8ae4-741e0c7fa204.jpg";
+// Реальные фотографии спецтехники с Unsplash (открытая лицензия)
+const PHOTOS = {
+  // Экскаватор на стройке — ночная съёмка
+  hero: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1400&q=80&fit=crop",
+  // Жёлтый экскаватор крупным планом
+  excavator: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=900&q=80&fit=crop",
+  // Самосвал / грузовик на стройке
+  truck: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80&fit=crop",
+  // Бульдозер / тяжёлая техника
+  bulldozer: "https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?w=900&q=80&fit=crop",
+  // Кран строительный
+  crane: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=80&fit=crop&crop=right",
+};
 
 // ─── Шеврон-декор ─────────────────────────────────────────────────────────────
 const Chevrons = ({ className = "" }: { className?: string }) => (
@@ -119,10 +130,10 @@ export default function Index() {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `url(${HERO_IMG})`,
+            backgroundImage: `url(${PHOTOS.hero})`,
             backgroundSize: "cover",
             backgroundPosition: "center top",
-            filter: "brightness(0.35) saturate(0.7)",
+            filter: "brightness(0.45) saturate(0.8)",
           }}
         />
         {/* Жёлтый градиент снизу */}
@@ -303,10 +314,10 @@ export default function Index() {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `url(${HERO_IMG})`,
+            backgroundImage: `url(${PHOTOS.excavator})`,
             backgroundSize: "cover",
-            backgroundPosition: "center bottom",
-            filter: "brightness(0.12) saturate(0.3)",
+            backgroundPosition: "center",
+            filter: "brightness(0.15) saturate(0.4)",
           }}
         />
         <div
@@ -408,6 +419,35 @@ export default function Index() {
                 что всё под контролем.
               </p>
             </div>
+          </div>
+
+          {/* ── Фотострип техники ── */}
+          <div className="grid grid-cols-3 gap-2" style={{ height: 90 }}>
+            {[PHOTOS.hero, PHOTOS.excavator, PHOTOS.truck].map((src, i) => (
+              <div
+                key={i}
+                className="relative overflow-hidden"
+                style={{ border: "1px solid rgba(255,214,0,0.3)" }}
+              >
+                <img
+                  src={src}
+                  alt=""
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    filter: "brightness(0.85) saturate(0.9)",
+                    display: "block",
+                  }}
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background: "linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 60%)",
+                  }}
+                />
+              </div>
+            ))}
           </div>
 
           {/* ── Блок: МОДЕЛИ ОПЛАТЫ ── */}
@@ -562,10 +602,10 @@ export default function Index() {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `url(${HERO_IMG})`,
+            backgroundImage: `url(${PHOTOS.truck})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            filter: "brightness(0.15) saturate(0.2)",
+            filter: "brightness(0.15) saturate(0.25)",
           }}
         />
         <div
